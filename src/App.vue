@@ -1,21 +1,41 @@
 <template>
+  <!--HTML -->
+
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main> 
+      <SearchBar></SearchBar>
+      <MoonPhase></MoonPhase>
+      </main>
+    
   </div>
 </template>
 
+<!-- JS -->
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from "./components/HelloWorld.vue";
+import MoonPhase from "./components/MoonPhase.vue"
+import SearchBar from "./components/SearchBar.vue"
 
 export default {
-  name: 'App',
+  name: "App",
+  props: [],
+  data() {
+    return {
+      url: "https://api.worldweatheronline.com/premium/v1/astronomy.ashx",
+      city: "",
+      key: 'ae253e88fa834f4486e10006201109',
+      includelocation: true
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    //HelloWorld,
+    MoonPhase,
+    SearchBar
+  },
+};
 </script>
 
+<!-- CSS -->
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -25,4 +45,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+main{
+  height:100vh;
+
+}
+
 </style>
